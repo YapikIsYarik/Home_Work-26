@@ -1,10 +1,11 @@
 import './sign-forms.css'
-import {NavLink} from "react-router-dom";
+import {NavLink,  useHistory,} from "react-router-dom";
+
 import {useState} from "react";
 
 
 function SignIn() {
-
+    const history = useHistory();
     let usersData = JSON.parse(localStorage.getItem('users'))
     const [emailValue, setEmailValue] = useState((usersData) ? usersData.email : '');
     const [passwordValue, setPasswordValue] = useState((usersData) ? usersData.password : '');
@@ -22,14 +23,14 @@ function SignIn() {
         } else {
             if ((document.querySelector('.form__checkbox').checked)) {
                 if (emailValue === usersData.email && passwordValue === usersData.password) {
-                    window.location.assign('/home')
+                    history.push('/home')
                 }else{
                     alert('Такого профілю не існує')
                 }
             } else {
                 if (emailValue === usersData.email && passwordValue === usersData.password) {
                     localStorage.removeItem("users")
-                    window.location.assign('/home')
+                    history.push('/home')
                 }
                 else{
                     alert('Такого профілю не існує')

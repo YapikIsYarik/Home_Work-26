@@ -1,8 +1,9 @@
-import {NavLink, Redirect} from "react-router-dom";
+import {NavLink,useHistory} from "react-router-dom";
 import './sign-forms.css'
-import { useState} from "react";
+import {useState} from "react";
 
 function SignUp() {
+    const history = useHistory();
     const emailRegExp = /^(\w{3})+([.-]?\w+)*@(\w{2})+([.-]?\w+)*(\.\w{2,3})+$/;
     const passwordRegExp = /^(?=.{8,30})(?=.*[A-Z])(?=.*[a-z])/;
     const nameRegExp = /^(?=.{2})/;
@@ -36,7 +37,7 @@ function SignUp() {
                 "email": emailValue,
             };
             localStorage.setItem("users", JSON.stringify(users))
-            window.location.assign('/sign-in');
+            history.push('/sign-in')
         } else {
             alert('Правильно заповніть всі поля')
         }
@@ -76,7 +77,7 @@ function SignUp() {
                     <div className="form__item checkbox__item">
                         <input className='form__checkbox' type="checkbox" name="checkbox" value="yes"/> <span>I want to receive inspiration, marketing promotions and updates via email me</span>
                     </div>
-                        <button onClick={handleFormSubmit} type="submit" className="form__button">Sign Up</button>
+                    <button onClick={handleFormSubmit} type="submit" className="form__button">Sign Up</button>
                 </form>
                 <div className="form__link-up">
                     <div className="">
