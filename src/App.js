@@ -11,7 +11,7 @@ function App() {
                 <div className="container">
 
                     <Router>
-                        <Route exact path="/">
+                        <Route exact path="">
                             <Redirect to="/sign-in"/>
                         </Route>
                         <Route path='/sign-in' component={SignIn}/>
