@@ -1,0 +1,109 @@
+
+.form__body {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.form {
+    width: 500px;
+}
+
+.form__item {
+    margin: 0px 0px 20px 0px;
+}
+
+.form__input {
+    height: 50px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 18px;
+    text-indent: 10px;
+    color: #fff;
+    box-sizing: border-box;
+    background-color: #161b13;
+    transition: all 0.5s ease 0s;
+}
+
+
+.form__input._green{
+    box-shadow: 0 0 15px green;
+}
+.form__input._red {
+    box-shadow: 0 0 15px red;
+}
+.form__icon {
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    width: 50px;
+    height: auto;
+}
+.checkbox__item{
+    display: flex;
+align-items: center;
+}
+.form__checkbox{
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+}
+.form__button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px;
+    background-color: #4f75ff;
+    color: #fff;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 20px;
+    box-shadow: 0 5px 0 #161b13;
+    transition: background-color 0.5s ease 0s;
+    position: relative;
+    top: 0;
+}
+
+.form__button:hover {
+    background-color: #07498f;
+}
+
+.form__button:active {
+    top: 3px;
+    box-shadow: 0 2px 0 #161b13;
+}
+.form__link-in{
+    width: 100%;
+   padding: 10px 0 0 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*////Sign-Up/////////*/
+
+.user__name{
+    display: flex;
+    justify-content: space-between;
+}
+.user__name input{
+    width: 48%;
+}
+.form__link-up{
+    width: 100%;
+    padding: 10px 0 0 0;
+    display: flex;
+    justify-content: right;
+}
