@@ -35,6 +35,7 @@ function SignUp() {
                 'user': firstNameValue + ' ' + lastNameValue,
                 'password': passwordValue,
                 "email": emailValue,
+                "checked" : true,
             };
             localStorage.setItem("users", JSON.stringify(users))
             history.push('/sign-in')

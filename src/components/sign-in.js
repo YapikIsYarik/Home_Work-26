@@ -1,5 +1,5 @@
 import './sign-forms.css'
-import {NavLink,  useHistory,} from "react-router-dom";
+import {NavLink, useHistory,} from "react-router-dom";
 
 import {useState} from "react";
 
@@ -7,8 +7,9 @@ import {useState} from "react";
 function SignIn() {
     const history = useHistory();
     let usersData = JSON.parse(localStorage.getItem('users'))
-    const [emailValue, setEmailValue] = useState((usersData) ? usersData.email : '');
-    const [passwordValue, setPasswordValue] = useState((usersData) ? usersData.password : '');
+    const [checked, setChecked] = useState(false)
+    const [emailValue, setEmailValue] = useState((usersData && usersData.checked) ? usersData.email : '');
+    const [passwordValue, setPasswordValue] = useState((usersData && usersData.checked) ? usersData.password : '');
 
     const handleEmailChange = (e) => {
         setEmailValue(e.target.value);
@@ -16,25 +17,21 @@ function SignIn() {
     const handlePasswordChange = (e) => {
         setPasswordValue(e.target.value);
     }
+const handleCheckedChange = (e)=>{
+    setChecked(document.querySelector('.form__checkbox').checked);
+}
+
     const handleFormSubmit = (e) => {
         e.preventDefault()
         if (usersData == null) {
             alert('Такого профілю не існує')
         } else {
-            if ((document.querySelector('.form__checkbox').checked)) {
-                if (emailValue === usersData.email && passwordValue === usersData.password) {
-                    history.push('/home')
-                }else{
-                    alert('Такого профілю не існує')
-                }
+            usersData.checked = checked;
+             localStorage.setItem("users", JSON.stringify(usersData))
+            if (emailValue === usersData.email && passwordValue === usersData.password) {
+                history.push('/home')
             } else {
-                if (emailValue === usersData.email && passwordValue === usersData.password) {
-                    localStorage.removeItem("users")
-                    history.push('/home')
-                }
-                else{
-                    alert('Такого профілю не існує')
-                }
+                alert('Такого профілю не існує')
             }
         }
     }
@@ -65,7 +62,7 @@ function SignIn() {
                     </div>
                     <div className="form__item checkbox__item">
                         <input
-
+                            onChange={handleCheckedChange}
                             className='form__checkbox'
                             type="checkbox" name="remember"
                             value="yes"/>
